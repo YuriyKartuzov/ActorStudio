@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Studio.Controllers.ActingBase>
+
+@{
+    ViewBag.Title = "Acting Resources";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<br />
+<div class="row">
+    <div class="col-md-3">
+        <h4>Teacher:</h4>
+        <p>Valia Syetova</p>
+    </div>
+    <div class="col-md-9">
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>Actions Available</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>
+
+
